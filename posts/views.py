@@ -19,7 +19,7 @@ def viewPost(request):
     fetchPosts = Post.objects.all()
     for post in fetchPosts:
         print("Post id is - "+str(post.pk)+"\n"+"Post title is - "+post.postTitle+"\n"+"Post content is - "+post.postContent)
-    return HttpResponse("Eureka")
+    return render(request,"viewPost.html",{"dataset":fetchPosts})
 
 def updatePost(request,id):
     fetchPost = get_object_or_404(Post,pk=id)
